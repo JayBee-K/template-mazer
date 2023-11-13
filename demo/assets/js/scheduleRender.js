@@ -181,13 +181,13 @@ function addCustomer(timeStar = "", timeEnd = "", tierTimeEnd = "" , operatory =
 
     let eleTempalte = `
     <div class="sch-event ${opt.classCus.map(cl => `${cl}`).join(' ')}" style="top:${topPosY}px;height:${bottomPosY - topPosY}px">
-        <div class="ev-top"><i class="fa fa-user lb"></i> <p><strong>003</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, veritatis.</p></div>
+        <div class="ev-top"><i class="bi bi-person-fill lb"></i> <p><strong>003</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, veritatis.</p></div>
         <div class="ev-body" style="background: ${opt.color};"></div>
-        <div class="lbs">${opt.isNew ? '<span class="lb new">New</span>' : '' }${opt.cCount > 0 ? '<span class="lb"><i class="fa fa-ban"></i> '+opt.cCount+'</span>' : '' }${opt.mess ? '<span class="lb"><i class="fa fa-bell"></i></span>' : '' }${opt.extra > 0 ? '<span class="lb">Ex+'+opt.extra+'</span>' :''}</div>
+        <div class="lbs">${opt.isNew ? '<span class="lb new">New</span>' : '' }${opt.cCount > 0 ? '<span class="lb"><i class="bi bi-slash-circle"></i> '+opt.cCount+'</span>' : '' }${opt.mess ? '<span class="lb"><i class="bi bi-bell"></i></span>' : '' }${opt.extra > 0 ? '<span class="lb">Ex+'+opt.extra+'</span>' :''}</div>
         
-        <div class="actions"><a class="fa fa-trash" onclick=removeSch(this)></a><a class="fa fa-cog" onclick=OpenEditMenu(this)></a></div>
+        <div class="actions"><a class="bi bi-trash" onclick=removeSch(this)></a><a class="bi bi-gear" onclick=OpenEditMenu(this)></a></div> 
         ${opt.isProcess ? '<span class="process"></span>' : '' }
-        <a href="javascript:;" class="power-off"  onclick='removeSsAllEvent(this.parentElement,"booking")'><i class="fa fa-power-off"></i></a>
+        <a href="javascript:;" class="power-off"  onclick='removeSsAllEvent(this.parentElement,"booking")'><i class="bi bi-power"></i></a>
         ${ipStoreTime}
     </div>
     `;
@@ -545,10 +545,14 @@ function getNewService(obj){
     let $slnhanvien = $('#addUser-selectOp');
     let $sltimestart = $('#addUser-selectTime');
     let $timeend = $('#addUser-ipTimeEnd');
-    
+}
 
+//close sec side menu
+$(document).on('click', '.menu-overlay' ,function(e){
+	let $menu = $(this).closest('.sec-menu-side');
+	$menu.removeClass('open');
+});
 
-} 
 
 /**
  * @fileoverview dragscroll - scroll area by dragging
