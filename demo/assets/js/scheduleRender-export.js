@@ -13,6 +13,8 @@ window.onload = function () {
 
 	handleLoadNoteCustomer();
 	handleRemoveSsAllEvent();
+
+	$('[data-toggle=tooltip]').tooltip();
 }
 
 export function LoadData(date, callbackSuccess) {
